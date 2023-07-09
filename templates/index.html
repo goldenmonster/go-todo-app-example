@@ -1,0 +1,10 @@
+{{ template "header.html" }}
+<h2>Todo List Page</h2>
+<ul>
+  {{range .todos}}
+  <li>
+    <div><span>{{ .Title }}</span></div>
+  </li>
+  {{ end }}
+</ul>
+{{ template "footer.html" }}

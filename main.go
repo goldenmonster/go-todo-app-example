@@ -38,7 +38,10 @@ func main() {
 	loadEnv()
 	loadDatabase()
 	setupLogOutput()
+
 	r := gin.New();
+	r.Static("/css", "./templates/css")
+	r.LoadHTMLGlob("templates/*.html")
 
 	r.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
 

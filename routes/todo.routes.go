@@ -8,11 +8,14 @@ import (
 
 func SetupTodoRoutes(r *gin.Engine)  {
 
-	todoRoutes := r.Group("/todos")
+	todoApiRoutes := r.Group("/api/todos")
 
-	todoRoutes.GET("/", controllers.GetTodos)
-	todoRoutes.GET("/:id", controllers.GetATodo)
-	todoRoutes.POST("/", controllers.CreateATodo)
-	todoRoutes.PUT("/:id", controllers.UpdateATodo)
-	todoRoutes.DELETE("/:id", controllers.DeleteATodo)
+	todoApiRoutes.GET("/", controllers.GetTodos)
+	todoApiRoutes.GET("/:id", controllers.GetATodo)
+	todoApiRoutes.POST("/", controllers.CreateATodo)
+	todoApiRoutes.PUT("/:id", controllers.UpdateATodo)
+	todoApiRoutes.DELETE("/:id", controllers.DeleteATodo)
+
+	todoViewRoutes := r.Group("todos")
+	todoViewRoutes.GET("/", controllers.GetTodoListPage)
 }
