@@ -10,7 +10,7 @@ import (
 type Todo struct {
 	gorm.Model
 	Title string `gorm:"size:255;not null;unique" json:"name" binding:"required"`  // `key: "value" key:"value"` uri: 
-	Hours int `gorm:"not null" json:"hours" binding:"required"`
+	Hours int `gorm:"not null" json:"hours" binding:"required,gte=1,let=100"`
 	Done bool `gorm:"not null" json:"done,omitempty" binding:"required"`
 }
 

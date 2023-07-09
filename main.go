@@ -2,10 +2,13 @@ package main
 
 import (
 	"example/todo-app/database"
+	"example/todo-app/middlewares"
 	"example/todo-app/models"
 	"example/todo-app/routes"
+	"io"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -25,10 +28,20 @@ func loadDatabase() {
 	database.Database.AutoMigrate(&models.Todo{})
 }
 
+
+func setupLogOutput() {
+	f, _ := os.Create("gin.log")
+	gin.DefaultWriter = io.MultiWriter(f, os.Stdout)
+}
+
 func main() {
 	loadEnv()
 	loadDatabase()
-	r := gin.Default();
+	setupLogOutput()
+	r := gin.New();
+
+	r.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
+
 	r.GET("/", func (c *gin.Context)  {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "Hello World!",

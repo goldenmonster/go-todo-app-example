@@ -1,0 +1,15 @@
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
+[GIN-debug] GET    /todos/                   --> example/todo-app/controllers.GetTodos (4 handlers)
+[GIN-debug] GET    /todos/:id                --> example/todo-app/controllers.GetATodo (4 handlers)
+[GIN-debug] POST   /todos/                   --> example/todo-app/controllers.CreateATodo (4 handlers)
+[GIN-debug] PUT    /todos/:id                --> example/todo-app/controllers.UpdateATodo (4 handlers)
+[GIN-debug] DELETE /todos/:id                --> example/todo-app/controllers.DeleteATodo (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+::1 - [05 Jul 23 08:51 EDT] GET / 200 852.9µs
