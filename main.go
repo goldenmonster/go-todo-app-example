@@ -4,7 +4,6 @@ import (
 	"example/todo-app/database"
 	"example/todo-app/middlewares"
 	"example/todo-app/models"
-	"example/todo-app/routes"
 	"io"
 	"log"
 	"net/http"
@@ -36,14 +35,15 @@ func setupLogOutput() {
 
 func main() {
 	loadEnv()
-	loadDatabase()
+	// loadDatabase()
 	setupLogOutput()
 
 	r := gin.New();
 	r.Static("/css", "./templates/css")
 	r.LoadHTMLGlob("templates/*.html")
 
-	r.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
+	// r.Use(gin.Recovery(), middlewares.Logger(), middlewares.BasicAuth())
+	r.Use(gin.Recovery(), middlewares.Logger())
 
 	r.GET("/", func (c *gin.Context)  {
 		c.JSON(http.StatusOK, gin.H{
@@ -52,7 +52,13 @@ func main() {
 	})
 
 	
-	routes.SetupTodoRoutes(r)
+	// routes.SetupTodoRoutes(r)
 
-	r.Run()	
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		port = "5000"
+	}
+
+	r.Run(":" + port)	
 }

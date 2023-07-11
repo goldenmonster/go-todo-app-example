@@ -5,28 +5,14 @@
 [GIN-debug] GET    /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
 [GIN-debug] HEAD   /css/*filepath            --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (1 handlers)
 [GIN-debug] Loaded HTML Templates (4): 
+	- 
 	- footer.html
 	- header.html
 	- index.html
-	- 
 
-[GIN-debug] GET    /                         --> main.main.func1 (4 handlers)
-[GIN-debug] GET    /api/todos/               --> example/todo-app/controllers.GetTodos (4 handlers)
-[GIN-debug] GET    /api/todos/:id            --> example/todo-app/controllers.GetATodo (4 handlers)
-[GIN-debug] POST   /api/todos/               --> example/todo-app/controllers.CreateATodo (4 handlers)
-[GIN-debug] PUT    /api/todos/:id            --> example/todo-app/controllers.UpdateATodo (4 handlers)
-[GIN-debug] DELETE /api/todos/:id            --> example/todo-app/controllers.DeleteATodo (4 handlers)
-[GIN-debug] GET    /todos/                   --> example/todo-app/controllers.GetTodoListPage (4 handlers)
+[GIN-debug] GET    /                         --> main.main.func1 (3 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
-[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
-[GIN-debug] Listening and serving HTTP on :8080
-[GIN-debug] redirecting request 307: /api/todos/ --> /api/todos/
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 200
-::1 - [08 Jul 23 22:30 EDT] POST /api/todos/ 400 103.09467ms
-[GIN-debug] redirecting request 307: /api/todos/ --> /api/todos/
-[GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 200
-::1 - [08 Jul 23 22:30 EDT] POST /api/todos/ 400 101.442757ms
-[GIN-debug] redirecting request 307: /api/todos/ --> /api/todos/
-::1 - [08 Jul 23 22:30 EDT] POST /api/todos/ 200 102.325076ms
-::1 - [08 Jul 23 22:31 EDT] GET /todos/ 200 102.250159ms
+[GIN-debug] Listening and serving HTTP on :5000
+::1 - [10 Jul 23 21:48 EDT] GET / 200 46.245µs
+::1 - [10 Jul 23 21:48 EDT] GET /favicon.ico 404 199ns
